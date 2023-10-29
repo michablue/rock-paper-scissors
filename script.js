@@ -1,21 +1,21 @@
 
 function getComputerChoice() {
-var myArray = ['Rock', 'Paper', 'Scissors']; 
-var getComputerChoice = myArray[(Math.random() * myArray.length) | 0]
-console.log(getComputerChoice);
+let myArray = ['Rock', 'Paper', 'Scissors']; 
+let computerChoice = myArray[(Math.random() * myArray.length) | 0]
+return computerChoice;
 }
 
 function getPlayerChoice() {
     let playerInput = prompt("type rock, paper, or scissors..");
-    let result = playerInput.toLowerCase() && playerInput.toUpperCase();
+    let result = playerInput.toLowerCase();
     return result; 
 }
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-    return "Tie";
+        return "Tie";
     } else if (playerSelection === "rock" && computerSelection === "Paper") {
-return "Paper beats rock, you lost!";
+        return "Paper beats rock, you lost!";
     } else if (playerSelection === "rock" && computerSelection === "Scissors") {
         return "Rock beats paper, you win!";
     } else if (playerSelection === "paper" && computerSelection === "Rock") {
@@ -28,7 +28,8 @@ return "Paper beats rock, you lost!";
         return "Scissors beats paper, you win!";
     }
     }
-    const playerSelection = "rock";
+    
+
+    const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
     console.log(playRound(playerSelection, computerSelection));
-    
