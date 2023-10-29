@@ -1,15 +1,34 @@
-/* 
-part 1: Create function getComputerChoice
-Make this function randomly return words (rock paper and scissors)
 
-part 2: Create a function that has two parameters with the names playerSelection 
-and computerSelection
-Make this function return a string/sentence that states whether you win or lose.
-The playerSelection should be caseinsensitive (rock = ROcK )
-
-part 3:continue writing more pseudocode after above is complete
-
-*/
+function getComputerChoice() {
 var myArray = ['Rock', 'Paper', 'Scissors']; 
 var getComputerChoice = myArray[(Math.random() * myArray.length) | 0]
 console.log(getComputerChoice);
+}
+
+function getPlayerChoice() {
+    let playerInput = prompt("type rock, paper, or scissors..");
+    let result = playerInput.toLowerCase() && playerInput.toUpperCase();
+    return result; 
+}
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection === computerSelection) {
+    return "Tie";
+    } else if (playerSelection === "rock" && computerSelection === "Paper") {
+return "Paper beats rock, you lost!";
+    } else if (playerSelection === "rock" && computerSelection === "Scissors") {
+        return "Rock beats paper, you win!";
+    } else if (playerSelection === "paper" && computerSelection === "Rock") {
+        return "paper beats rock, you win!";
+    } else if (playerSelection === "paper" && computerSelection === "Scissors") {
+        return "Scissors beats paper, you lost!";
+    } else if (playerSelection === "scissors" && computerSelection === "Rock") {
+        return "Rock beats scissors, you lost!";
+    } else if (playerSelection === "scissors" && computerSelection === "Paper") {
+        return "Scissors beats paper, you win!";
+    }
+    }
+    const playerSelection = "rock";
+    const computerSelection = getComputerChoice();
+    console.log(playRound(playerSelection, computerSelection));
+    
